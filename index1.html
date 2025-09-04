@@ -1,0 +1,255 @@
+/* ---------- 8. LUCIDE ICONS ---------- */
+lucide.createIcons();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yash Agrawal — Portfolio</title>
+
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav class="nav">
+      <a href="#home" class="logo">Yash — Portfolio</a>
+
+      <!-- Links -->
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#recommendations">Recommendations</a></li>
+        <li><a href="#resume">Resume</a></li>
+      </ul>
+
+      <!-- Theme switcher (inside nav for desktop) -->
+      <button id="theme-toggle" aria-label="Toggle theme">
+        <i data-lucide="sun"></i>
+      </button>
+
+      <!-- Hamburger -->
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <canvas id="bg-canvas"></canvas>
+    <div class="hero-content">
+      <h1>
+        Hi, I’m <span class="gradient-text">Yash Agrawal</span><br/>
+        <span id="typewriter"></span>
+      </h1>
+      <p>Final-year CS student who loves building scalable apps & data-driven products.</p>
+      <div class="cta">
+        <a href="#projects" class="btn primary">View Work</a>
+        <a href="mailto:yash.agrawal0303@gmail.com" class="btn outline">Hire Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section reveal">
+    <h2>About Me</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+         I’m a final-year <strong>Computer Science</strong> student at <strong>UEM Kolkata</strong>,
+          passionate about <strong>Full-Stack Development</strong> and <strong>Cybersecurity</strong>. 
+          From designing secure, user-friendly applications to exploring advanced technologies, I enjoy 
+          transforming ideas into impactful real-world solutions.
+          
+        </p>
+        <ul class="meta">
+          <li><i data-lucide="mail"></i> yash.agrawal0303@gmail.com</li>
+          <li><i data-lucide="phone"></i> +91 8303712070</li>
+          <li><i data-lucide="map-pin"></i> Kolkata, West Bengal</li>
+        </ul>
+        <div class="socials">
+          <a href="https://github.com/Yash-Agrawal2" aria-label="GitHub"><i data-lucide="github"></i></a>
+          <a href="https://www.linkedin.com/in/yash-agrawal-b94678284" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+        </div>
+      </div>
+      <div class="tilt-card">
+        <img src="Yash me.jpg" alt="Profile" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="section reveal">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <!-- Java -->
+      <div class="skill-card" data-tilt>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"/>
+        <span>Java</span>
+      </div>
+      <!-- Python -->
+      <div class="skill-card" data-tilt>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"/>
+        <span>Python</span>
+      </div>
+      <!-- JS -->
+      <div class="skill-card" data-tilt>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS"/>
+        <span>JavaScript</span>
+      </div>
+      <!-- React -->
+      <div class="skill-card" data-tilt>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"/>
+        <span>React.js</span>
+      </div>
+      <!-- Node -->
+      <div class="skill-card" data-tilt>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node"/>
+        <span>Node.js</span>
+      </div>
+      <!-- Mongo -->
+      <div class="skill-card" data-tilt>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="Mongo"/>
+        <span>MongoDB</span>
+      </div>
+      <!-- Solidity -->
+      <div class="skill-card" data-tilt>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/solidity/solidity-original.svg" alt="sol"/>
+        <span>Solidity</span>
+      </div>
+
+      <div class="skill-card" data-tilt>
+        <img src="hardhat-original.svg" alt="sol"/>
+        <span>Hardhat</span>
+      </div>
+      <!-- Git -->
+      <div class="skill-card" data-tilt>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"/>
+        <span>Git</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section reveal">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <!-- Solar -->
+      <article class="project-card" data-tilt>
+        <div class="project-img">
+          <img src="DHRMs.webp" alt="DHRMS"/>
+        </div>
+        <div class="project-body">
+          <h3>🩺 Healthcare Record Management System</h3>
+          <p>MediChain Nexus enables secure, patient-controlled healthcare records with blockchain immutability and IPFS storage.</p>
+          <a href="https://github.com/Yash-Agrawal2" class="btn outline small">GitHub</a>
+        </div>
+      </article>
+
+      <!-- Tree -->
+      <article class="project-card" data-tilt>
+        <div class="project-img">
+          <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=600&q=60" alt="Tree"/>
+        </div>
+        <div class="project-body">
+          <h3>🌿 Tree Species Classification</h3>
+          <p>Flask + EfficientNetV2 web app with smart rejection.</p>
+          <a href="https://github.com/Yash-Agrawal2" class="btn outline small">GitHub</a>
+        </div>
+      </article>
+
+      <!-- Voting -->
+      <article class="project-card" data-tilt>
+        <div class="project-img">
+          <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=600&q=60" alt="Vote"/>
+        </div>
+        <div class="project-body">
+          <h3>🗳 Online Voting System</h3>
+          <p>Secure React/Node/Mongo platform with JWT & real-time results.</p>
+          <a href="https://github.com/Yash-Agrawal2" class="btn outline small">GitHub</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Recommendations -->
+<section id="recommendations" class="section reveal">
+  <h2>Recommendations</h2>
+
+  <div class="rec-slider">
+    <!-- Card 1 -->
+    <div class="rec-card">
+      <blockquote>
+        “Yash is a very quick learner and quickly grasps key concepts of Web development. He has a great attitude & is an excellent team player.”
+      </blockquote>
+      <footer> Manish Kumar Gupta</footer>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="rec-card">
+      <blockquote>
+        “Working with Yash has been an awesome experience. He is highly knowledgeable and always goes the extra step to make sure everything is right.”
+      </blockquote>
+      <footer> Priyanka Chaudhuri</footer>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="rec-card">
+      <blockquote>
+        “I worked with Yash during the initial phase of our venture which needed Web3 development. He is a committed resource with in-depth knowledge and will be an asset to any organisation!”
+      </blockquote>
+      <footer> Siddharth Agrawal</footer>
+    </div>
+  </div>
+
+  <!-- Quick-add form -->
+  <form id="rec-form" class="rec-form">
+    <textarea placeholder="Write a few words about Yash…" required></textarea>
+    <input type="text" placeholder="Your Name (optional)" />
+    <button type="submit" class="btn primary">Submit</button>
+  </form>
+</section>
+
+  <!-- Résumé -->
+  <section id="resume" class="section reveal">
+    <h2>Resume</h2>
+    <p>Grab my latest resume:</p>
+    <a href="Yash_Resume (2).pdf" download class="btn primary">
+      <i data-lucide="download"></i> Download PDF
+    </a>
+  </section>
+<!--footer-->
+<footer>
+  <div class="footer-inner">
+    <!-- 1. GitHub & LinkedIn -->
+    <div class="footer-socials">
+      <a href="https://github.com/Yash-Agrawal2" aria-label="GitHub"><i data-lucide="github"></i></a>
+      <a href="https://www.linkedin.com/in/yash-agrawal-b94678284/" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+    </div>
+
+    <!-- 2. Copyright -->
+    <p class="footer-copy">
+      © <span id="year"></span> Yash Agrawal. All rights reserved.
+    </p>
+
+    <!-- 3. Back-to-top arrow -->
+    <a href="#home" class="footer-top" aria-label="Back to top">
+      <i data-lucide="arrow-up"></i>
+    </a>
+  </div>
+</footer>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
