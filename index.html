@@ -1,46 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Porfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yash Agrawal — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E🚀%3C/text%3E%3C/svg%3E">
+  <style>
+    :root{
+      --bg:#0b0f14; --card:#0f1621; --muted:#94a3b8; --text:#e2e8f0; --brand:#5eead4; --brand-2:#60a5fa; --ring: 0 0 0 3px rgba(94,234,212,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;scroll-behavior:smooth}
+    body{margin:0;font-family:"Plus Jakarta Sans", Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial; color:var(--text); background: radial-gradient(1200px 800px at 10% -20%, rgba(96,165,250,.15), rgba(0,0,0,0) 60%), radial-gradient(1200px 800px at 110% 10%, rgba(94,234,212,.15), rgba(0,0,0,0) 60%), var(--bg);} 
+    /* Extra margin for Skills, Projects, and Recommendations sections */
+    #skills {
+        margin-top: 100px;
+    }
+
+    #projects {
+        margin-top: 100px;
+    }
+
+    #recommendations {
+        margin-top: 100px;
+    }
+
+    /* Header / Nav */
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(10px); background:linear-gradient(180deg, rgba(11,15,20,.85), rgba(11,15,20,.3)); border-bottom:1px solid rgba(148,163,184,.12)}
+    .nav{max-width:1100px; margin:auto; display:flex; align-items:center; justify-content:space-between; padding:14px 20px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px;}
+    .brand .dot{width:10px;height:10px;border-radius:50%; background:linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow:0 0 24px var(--brand)}
+    .brand a{color:var(--text); text-decoration:none; font-size:20px}
+
+    nav a{color:var(--muted); text-decoration:none; margin-left:22px; padding:8px 2px; border-radius:6px; position:relative; font-weight:600; letter-spacing:.2px}
+    nav a:hover{color:var(--text); text-decoration:underline; font-weight:800}
+    nav a:focus-visible{outline:none; box-shadow:var(--ring)}
+
+    /* Hero / About */
+    .container{max-width:1100px; margin:0 auto; padding:40px 20px}
+    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:36px; align-items:center}
+    @media (max-width:900px){.hero{grid-template-columns:1fr;}}
+
+    .card{background:linear-gradient(180deg, rgba(15,22,33,.8), rgba(15,22,33,.6)); border:1px solid rgba(148,163,184,.12); box-shadow:0 10px 40px rgba(0,0,0,.35); border-radius:18px}
+    .about{padding:28px}
+    .about h1{margin:0 0 8px; font-size:36px; font-weight:800}
+    .about p{color:var(--muted); line-height:1.7}
+    .meta{margin-top:14px; display:flex; flex-wrap:wrap; gap:10px 16px; font-weight:600}
+    .meta a{color:var(--brand); text-decoration:none}
+    .meta a:hover{text-decoration:underline}
+
+    .avatarWrap{position:relative; overflow:hidden; aspect-ratio:1/1; border-radius:22px; border:1px solid rgba(148,163,184,.12)}
+    .avatar{width:100%; height:100%; object-fit:cover; display:block}
+    .avatar-fallback{display:flex; align-items:center; justify-content:center; height:100%; font-size:52px; font-weight:800; background:linear-gradient(135deg, rgba(96,165,250,.25), rgba(94,234,212,.2)); color:#0b1220}
+
+    /* Section headings */
+    .section{margin-top:40px}
+    .section h2{font-size:28px; margin:0 0 18px; display:flex; align-items:center; gap:10px}
+    .section h2 .pill{font-size:12px; padding:4px 10px; border-radius:999px; background:rgba(94,234,212,.14); color:var(--brand); border:1px solid rgba(94,234,212,.28)}
+
+    /* Skills */
+    .skills{display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:14px}
+    .skill{display:flex; align-items:center; gap:12px; padding:14px; border-radius:14px; border:1px solid rgba(148,163,184,.12); background:linear-gradient(180deg, rgba(15,22,33,.7), rgba(15,22,33,.45)); transition:transform .2s ease, box-shadow .2s ease}
+    .skill:hover{transform:translateY(-3px); box-shadow:0 12px 30px rgba(0,0,0,.25)}
+    .skill img{width:28px; height:28px}
+    .skill span{font-weight:700}
+
+    /* Projects */
+    .projects{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:18px}
+    .project{padding:18px; border-radius:16px; border:1px solid rgba(148,163,184,.12); background:linear-gradient(180deg, rgba(15,22,33,.7), rgba(15,22,33,.45));}
+    .project h3{margin:0 0 8px; font-size:18px}
+    .project p{color:var(--muted); margin:10px 0}
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+    .tag{font-size:12px; padding:4px 8px; border:1px solid rgba(148,163,184,.22); border-radius:999px; color:#cbd5e1}
+    .project a{display:inline-block; margin-top:12px; color:var(--brand-2); text-decoration:none; font-weight:700}
+    .project a:hover{text-decoration:underline}
+
+    /* Recommendations */
+    .recs{display:grid; gap:14px}
+    .rec{position:relative; padding:18px 18px 18px 24px; border-left:4px solid var(--brand); border-radius:12px; border:1px solid rgba(148,163,184,.12); background:linear-gradient(180deg, rgba(15,22,33,.7), rgba(15,22,33,.45))}
+    .rec:before{content:"\201C"; position:absolute; left:8px; top:-6px; font-size:44px; color:rgba(94,234,212,.35)}
+
+    textarea{width:100%; min-height:90px; margin-top:8px; padding:12px; border-radius:12px; border:1px solid rgba(148,163,184,.25); background:#0b1220; color:var(--text); font-family:inherit}
+    button.primary{margin-top:10px; padding:10px 14px; border:0; border-radius:12px; background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:#051320; font-weight:800; cursor:pointer}
+    button.primary:hover{filter:brightness(1.08)}
+
+    /* Popup */
+    .popup{display:none; position:fixed; inset:0; background:rgba(0,0,0,.45); align-items:center; justify-content:center; z-index:60}
+    .popup .box{background:var(--card); border:1px solid rgba(148,163,184,.22); border-radius:18px; padding:22px; width:min(92vw, 440px); text-align:center}
+
+    /* Footer */
+    footer{margin-top:36px; padding:26px 18px; text-align:center; border-top:1px solid rgba(148,163,184,.12); color:var(--muted)}
+    footer .socials a{color:var(--text); text-decoration:none; margin:0 10px; font-weight:700}
+    footer .socials a:hover{color:var(--brand)}
+
+    /* Utility */
+    .row{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+    .muted{color:var(--muted)}
+    .home-icon{display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:12px; background:linear-gradient(135deg, rgba(94,234,212,.25), rgba(96,165,250,.25)); border:1px solid rgba(148,163,184,.22)}
+
+    /* Fancy animated background blob */
+    .blob{position:absolute; inset:auto auto -150px -150px; width:320px; height:320px; filter:blur(60px); background:radial-gradient(closest-side, rgba(94,234,212,.35), rgba(96,165,250,.25), transparent); border-radius:50%; transform:translateZ(0); animation:float 10s ease-in-out infinite alternate}
+    @keyframes float{to{transform:translate(40px,-40px) scale(1.05)}}
+  </style>
 </head>
 <body>
-    <div id="main">
-        <header>
-                <a href="#" class="logo">Y-Agrawal</a>
-                <nav>
-                <a href="#" class="active">Home</a>
-                <a href="#">Services</a>
-                <a href="#">Skills</a>
-                <a href="#">Education</a>
-                <a href="#">Experience</a>
-                <a href="#">Contact</a>
-                </nav>
-        </header>
-        <section class="home">
-            <div class="home-img">
-                <img src="imge.jpg" alt="image">
-            </div>
-            <div class="home-content">
-                <h1>Hi, It's <span>Yash</span>
-                </h1>
-                <h3 class="typing-text">I'm a <span></span></h3>
-                <p>I am Web Developer and also learning block chain for becoming and web and block chain developer for more perfect in computer and help the others in this field to be the good learner of this field.. and also feel proud to my parents.</p>
-                <br>
-                <p>Thank You</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#"><i class="fa-brands fa-github"></i></a>
-                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-
-                </div>
-                <a href="#" class="btn">Hire me</a>
-            </div>
-        </section>
+  <!-- Header -->
+  <header id="home">
+    <div class="nav">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <a href="#home" aria-label="Home">Yash Agrawal</a>
+      </div>
+      <nav aria-label="Primary Navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Project details</a>
+        <a href="#skills">Skills</a>
+        <a href="#recommendations">Recommendations</a>
+      </nav>
     </div>
+  </header>
+
+  <main class="container">
+    <!-- About Me -->
+    <section id="about" class="hero section">
+      <div class="card about">
+        <h1>About Me</h1>
+        <p>
+          Hi, I’m <strong>Yash Agrawal</strong> — a B.Tech (CSE, 2022–2026) student based in <strong>Kolkata, India</strong>. I build secure, user-friendly systems across <strong>Full‑Stack Web</strong> and <strong>Blockchain</strong>, with hands‑on work in <strong>decentralized healthcare</strong>, <strong>DeFi tooling</strong>, and <strong>cybersecurity</strong>.
+        </p>
+        <p>
+          I enjoy converting complex problems into clean solutions — from React/Next.js frontends to Solidity smart contracts with IPFS and Chainlink. I’ve delivered production‑ready features, automated QA with Selenium, and led projects that reduced manual effort by up to <strong>50%</strong> and improved data security.
+        </p>
+        <div class="meta">
+          <span>📍 Kolkata</span>
+          <a href="mailto:yash.agrawal0303@gmail.com">📧 yash.agrawal0303@gmail.com</a>
+          <span>📞 8303712070</span>
+          <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
+      <div class="card avatarWrap">
+        <img class="avatar" src="images/yash-profile.jpg" alt="Profile photo of Yash Agrawal" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
+        <div class="avatar-fallback" style="display:none">YA</div>
+        <span class="blob" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section">
+      <h2>Skills <span class="pill">logos + text</span></h2>
+      <div class="skills">
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java logo"><span>Java</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python logo"><span>Python</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript logo"><span>JavaScript</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React logo"><span>React / Next.js</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/solidity/solidity-original.svg" alt="Solidity logo"><span>Solidity</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ethereum/ethereum-original.svg" alt="Ethereum logo"><span>Ethereum / Hardhat</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker logo"><span>Docker</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB logo"><span>MongoDB</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL logo"><span>MySQL</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg" alt="Selenium logo"><span>QA (Selenium)</span></div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <h2>Project details <span class="pill">3 custom projects</span></h2>
+      <div class="projects">
+        <article class="project">
+          <h3>🩺 Decentralized Healthcare Record Management System</h3>
+          <p>Blockchain‑based web app managing <strong>500+ patient records</strong> using Solidity, Ethereum, and IPFS. React portals for patients & providers with smart‑contract access control; improved privacy and reduced unauthorized access risk by <strong>40%</strong>.</p>
+          <div class="tags"><span class="tag">Solidity</span><span class="tag">Ethereum</span><span class="tag">IPFS</span><span class="tag">React</span></div>
+          <a href="#" target="_blank" rel="noreferrer">🔗 View Case Study</a>
+        </article>
+        <article class="project">
+          <h3>🤖 DeFi AI Chatbot</h3>
+          <p>Next.js + ethers.js frontend that handled <strong>50+/day</strong> live queries. Integrated Chainlink Functions for real‑time market data & AI responses; optimized on‑chain transaction flow and secure API key handling.</p>
+          <div class="tags"><span class="tag">Next.js</span><span class="tag">Ethers.js</span><span class="tag">Chainlink</span><span class="tag">LLM</span></div>
+          <a href="#" target="_blank" rel="noreferrer">🔗 View Project</a>
+        </article>
+        <article class="project">
+          <h3>🛡️ Vulnerability Scanner (CLI → Web)</h3>
+          <p>Automated port scanning, service detection, and CVE‑linked alerts; migrated to Flask web app with multithreading and HTML reports for <strong>100+ targets</strong>, cutting manual triage by <strong>50%</strong>.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">CVE</span><span class="tag">Reports</span></div>
+          <a href="#" target="_blank" rel="noreferrer">🔗 View Repo</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Recommendations -->
+    <section id="recommendations" class="section">
+      <h2>Recommendations <span class="pill">+ Add new</span></h2>
+      <div class="recs all_recommendations" id="rec_list">
+        <div class="rec">Yash transformed our prototype into a production‑ready dApp with clean contracts and a thoughtful UI. Delivery was on time and the code reviews were a breeze.</div>
+        <div class="rec">His work on the vulnerability scanner saved our team hours each week. Clear documentation, great test coverage, and pragmatic design decisions.</div>
+        <div class="rec">Yash pairs strong CS fundamentals with ownership. He communicates tradeoffs early and ships secure, maintainable features.</div>
+      </div>
+
+      <label for="new_recommendation_input" class="muted" style="display:block; margin-top:12px">Add a recommendation</label>
+      <textarea id="new_recommendation_input" placeholder="Write your recommendation here..."></textarea>
+      <button class="primary" id="recommend_btn" onclick="addRecommendation()">+ Add Recommendation</button>
+    </section>
+
+    <!-- Footer with Home icon and socials -->
+    <footer>
+      <a href="#home" class="home-icon" title="Back to top" aria-label="Back to home">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" width="22" height="22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l9-9 9 9"/><path d="M9 21V9h6v12"/></svg>
+      </a>
+      <div class="socials" style="margin-top:10px">
+        <a href="https://github.com/yash" target="_blank" rel="noreferrer">GitHub</a> |
+        <a href="https://linkedin.com/in/yash" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+      <div class="muted" style="margin-top:8px">© <span id="year"></span> Yash Agrawal</div>
+    </footer>
+  </main>
+
+  <!-- Popup -->
+  <div id="popup" class="popup" role="dialog" aria-modal="true" aria-labelledby="popMsg">
+    <div class="box">
+      <h3 id="popMsg" style="margin:0 0 8px">✅ Thank you for leaving a recommendation!</h3>
+      <p class="muted" style="margin:0 0 12px">Your feedback has been added below.</p>
+      <button class="primary" onclick="showPopup(false)">Close</button>
+    </div>
+  </div>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Restore saved recommendations
+    const REC_KEY = 'yash_recommendations';
+    const saved = JSON.parse(localStorage.getItem(REC_KEY) || '[]');
+    const recList = document.getElementById('rec_list');
+    if(saved.length){
+      saved.forEach(t => recList.appendChild(makeRec(t)));
+    }
+
+    function makeRec(text){
+      const div = document.createElement('div');
+      div.className = 'rec';
+      div.textContent = text;
+      return div;
+    }
+
+    function addRecommendation(){
+      const input = document.getElementById('new_recommendation_input');
+      const text = input.value.trim();
+      if(!text){ alert('Please write a recommendation before submitting.'); return; }
+      recList.appendChild(makeRec(text));
+      const current = JSON.parse(localStorage.getItem(REC_KEY) || '[]');
+      current.push(text);
+      localStorage.setItem(REC_KEY, JSON.stringify(current));
+      input.value = '';
+      showPopup(true);
+    }
+
+    function showPopup(flag){
+      document.getElementById('popup').style.display = flag ? 'flex' : 'none';
+    }
+
+    // Subtle section reveal
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.animate([{opacity:0, transform:'translateY(12px)'},{opacity:1, transform:'translateY(0)'}], {duration:500, easing:'ease-out', fill:'forwards'}); }
+      });
+    }, {threshold:.12});
+    document.querySelectorAll('.section').forEach(el=>obs.observe(el));
+  </script>
 </body>
 </html>
